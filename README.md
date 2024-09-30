@@ -82,7 +82,7 @@ class AnomalyDetector(Model):
 ~~~
 The activation function used in the convolutional layers is ReLU, except for the last layer of the decoder, which uses a sigmoid activation function to ensure output pixel values are in the range [0, 1].
 ## 4. Model Training:
-**visualization of Loss by epochs:**
+**Visualization of Loss by epochs:**
 ![loss](https://github.com/user-attachments/assets/53b5b02c-49d4-48a5-a8d2-6f8da5011455)
 
 It seems like the model is training reasonably well, with the training loss (loss) and validation loss (val_loss) decreasing over epochs. The model is learning to reconstruct the input images, as evidenced by the decreasing loss values.
@@ -90,7 +90,7 @@ It seems like the model is training reasonably well, with the training loss (los
 ![see_how_it_generates](https://github.com/user-attachments/assets/7023f411-4e33-4a6d-93fe-f68fae97811f)
 Although the generated image is not as detailed as the original, we will see that the neural network still successfully detected adulterated pistachios. This shows that the model can identify anomalies even with less detailed images.
 ## 5. Model Evaluation:
-### Distribution of reconstruction error by level of fraud:
+### Distribution of reconstruction error by the level of fraud:
 The reconstruction error is a crucial metric in evaluating the performance of the autoencoder. It measures how well the model can recreate the input images after they pass through the encoder and decoder.
 ~~~python
 def calculate_reconstruction_error(autoencoder, images):
