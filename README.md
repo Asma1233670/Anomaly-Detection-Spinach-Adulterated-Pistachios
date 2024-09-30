@@ -102,3 +102,24 @@ def calculate_reconstruction_error(autoencoder, images):
 ![re_30%](https://github.com/user-attachments/assets/28e75753-bb3a-45a5-9082-835cfcd094db)
 ![re_40%](https://github.com/user-attachments/assets/45ecad7c-a225-41e6-a269-daa3f2d767af)
 ![re_50%](https://github.com/user-attachments/assets/87cdcdd0-c8f9-4e15-b82b-7f8420ec733f)
+
+The visualizations reveal that: as the amount of spinach adulteration in the pistachio samples increases, the reconstruction error does as well. **This means the model struggles more to accurately reconstruct heavily adulterated images. In simpler terms, the higher the spinach content, the harder it is for the model to tell what's going on in the images.**
+### Choosing a threshold for the reconstruction error:
+To detect anomalies, we need to choose a threshold for the reconstruction error. Here's how I did it:
+* **Calculate Training Loss:** We first find out how well the autoencoder can reconstruct the training images. This gives us a set of error values.
+~~~python
+train_loss = calculate_reconstruction_error(autoencoder, training_images)
+~~~
+* **Set the Threshold:** We determine the threshold by taking the average of these errors and adding one standard deviation. This helps us set a limit that is higher than most of the reconstruction errors from the training data.
+~~~python
+threshold = np.mean(train_loss) + np.std(train_loss)
+~~~
+In this case, our threshold is about **0.0028552006**. Any error above this value will be considered an anomaly.
+
+### Calculating evaluation metrics: Accuracy, Precision, Recall and F1-score:
+To evaluate the performance of our autoencoder in detecting anomalies, we compute several metrics: accuracy, precision, recall, and F1 score.
+The results of the evaluation reveal that our model performs exceptionally well, achieving an accuracy of approximately 97.3%, a precision of 98.5%, a recall of 98.2%, and an F1 score of 98.4%. These metrics indicate that the model is highly effective at correctly identifying both normal and anomalous images, validating its robustness for the task of anomaly detection.
+![metrics](https://github.com/user-attachments/assets/6469641b-6869-411f-b20a-7e883bd78cf4)
+**Overall, these evaluation metrics underscore the reliability and efficacy of the anomaly detection system in distinguishing between pure and spinach-adulterated pistachios.**
+
+---
