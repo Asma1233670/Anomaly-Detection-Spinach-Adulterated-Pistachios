@@ -13,6 +13,7 @@ The dataset consists of images of pistachios, categorized into:
     * 30% spinach adulteration
     * 40% spinach adulteration
     * 50% spinach adulteration
+
 Dataset link: https://www.kaggle.com/datasets/kazimkili/spinach-adulterated-pistachios/data
 ## Goal of the project: 
 The aim is to build an autoencoder for anomaly detection to differentiate between pure and adulterated pistachios. The autoencoder is trained on pure pistachios, and it flags adulterated pistachios by identifying significant deviations in reconstruction error.
