@@ -119,7 +119,9 @@ In this case, our threshold is about **0.0028552006**. Any error above this valu
 ### Calculating evaluation metrics: Accuracy, Precision, Recall and F1-score:
 To evaluate the performance of our autoencoder in detecting anomalies, we compute several metrics: accuracy, precision, recall, and F1 score.
 The results of the evaluation reveal that our model performs exceptionally well, achieving an accuracy of approximately 97.3%, a precision of 98.5%, a recall of 98.2%, and an F1 score of 98.4%. These metrics indicate that the model is highly effective at correctly identifying both normal and anomalous images, validating its robustness for the task of anomaly detection.
+
 ![metrics](https://github.com/user-attachments/assets/6469641b-6869-411f-b20a-7e883bd78cf4)
+
 **Overall, these evaluation metrics underscore the reliability and efficacy of the anomaly detection system in distinguishing between pure and spinach-adulterated pistachios.**
 
 ---
