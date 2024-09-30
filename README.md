@@ -42,8 +42,10 @@ def v_flip(image): return np.flipud(image)
 ~~~
 ### 3. Model Architecture:
 This model architecture is inspired by **VGG19**, a convolutional neural network that is 19 layers deep. The VGG19 model, originally designed for image classification tasks, excels at extracting intricate features from images and classifying them into 1000 object categories, such as keyboards, animals, and other everyday objects. While the original VGG19 architecture ends with fully connected layers for classification, in my approach, I’ve adapted this structure to serve as an **autoencoder** for anomaly detection.
+
 ![vggarchitecture](https://github.com/user-attachments/assets/9e7d0b99-3c58-462c-bcbe-d48ba0561973)
 In particular, I retained the **encoder** aspect of VGG19, leveraging its powerful feature extraction through convolutional layers and max-pooling operations. However, instead of terminating with classification layers, I introduced a mirrored **decoder** to reconstruct the input data from its latent representation. This design allows the network to learn a compressed version of the data and then reconstruct it, making it well-suited for identifying anomalies by analyzing the reconstruction errors. Thus, the architecture maintains the robust feature extraction capability of VGG19 while extending it into a generative process for anomaly detection.
+
 ![Autoencoder_architecture](https://github.com/user-attachments/assets/a2b0964a-d5cb-4096-aa3d-3467947788d5)
 ~~~python
 class AnomalyDetector(Model):
